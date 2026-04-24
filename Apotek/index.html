@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Obat Sumber Sehat - Solusi Kesehatan Terpercaya</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Particle Background (Animated Canvas or CSS) -->
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-notes-medical"></i> Toko obat<span>Sumber Sehat</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#contact" class="btn-primary">Hubungi Kami</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1500">
+                <span class="badge">Buka 24 Jam</span>
+                <h1 class="typing-text">Kesehatan Anda Adalah <br><span class="highlight">Prioritas Kami</span></h1>
+                <p>Kami menyediakan berbagai macam obat-obatan, vitamin, dan alat kesehatan dengan kualitas terjamin dan
+                    layanan Toko obat profesional.</p>
+                <div class="hero-btns">
+                    <a href="#products" class="btn-primary btn-glow">Beli Obat Sekarang <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#services" class="btn-secondary">Lihat Layanan</a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="300">
+                <div class="floating-wrapper">
+                    <!-- Placeholder using font-awesome for a medical aesthetic -->
+                    <div class="medical-illustration">
+                        <i class="fa-solid fa-prescription-bottle-medical float-item item-1"></i>
+                        <i class="fa-solid fa-pills float-item item-2"></i>
+                        <i class="fa-solid fa-heart-pulse float-item item-3"></i>
+                        <div class="main-shield">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Layanan Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Layanan Unggulan Kami</h2>
+                <p>Solusi lengkap untuk segala kebutuhan kesehatan Anda</p>
+            </div>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card tilt-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card-icon"><i class="fa-solid fa-file-prescription"></i></div>
+                    <h3>Tebus Resep</h3>
+                    <p>Layanan tebus resep dokter dengan cepat, akurat, dan obat yang terjamin keasliannya.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card tilt-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card-icon"><i class="fa-solid fa-truck-medical"></i></div>
+                    <h3>Pesan Antar</h3>
+                    <p>Fasilitas pengiriman obat ke rumah Anda dengan cepat dan aman untuk wilayah tertentu.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card tilt-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h3>Konsultasi Gratis</h3>
+                    <p>Toko obat kami siap membantu memberikan informasi detail terkait obat yang Anda butuhkan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Produk Pilihan Terpopuler</h2>
+                <p>Produk kesehatan berkualitas tinggi dengan harga terjangkau</p>
+            </div>
+
+            <div class="filter-btns" data-aos="fade-up" data-aos-delay="100">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="vitamin">Vitamin & Suplemen</button>
+                <button class="filter-btn" data-filter="p3k">P3K</button>
+                <button class="filter-btn" data-filter="obat">Obat Umum</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="vitamin" data-name="Multivitamin Kompleks" data-price="45000" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-img">
+                        <i class="fa-solid fa-capsules product-placeholder"></i>
+                        <span class="discount">-10%</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Vitamin & Suplemen</span>
+                        <h3>Multivitamin Kompleks</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <div class="price">
+                            <span class="new-price">Rp 45.000</span>
+                            <span class="old-price">Rp 50.000</span>
+                        </div>
+                        <button class="btn-add-cart">Tambah ke Keranjang <i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" data-category="obat" data-name="Paracetamol 500mg" data-price="12000" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-img">
+                        <i class="fa-solid fa-tablets product-placeholder"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Obat Umum</span>
+                        <h3>Paracetamol 500mg</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="price">
+                            <span class="new-price">Rp 12.000</span>
+                        </div>
+                        <button class="btn-add-cart">Tambah ke Keranjang <i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" data-category="p3k" data-name="Kotak P3K Lengkap" data-price="120000" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-img">
+                        <i class="fa-solid fa-kit-medical product-placeholder"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="category">P3K</span>
+                        <h3>Kotak P3K Lengkap</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-regular fa-star"></i>
+                        </div>
+                        <div class="price">
+                            <span class="new-price">Rp 120.000</span>
+                        </div>
+                        <button class="btn-add-cart">Tambah ke Keranjang <i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" data-category="vitamin" data-name="Vitamin C 1000mg" data-price="35000" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-img">
+                        <i class="fa-solid fa-bottle-droplet product-placeholder"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Vitamin & Suplemen</span>
+                        <h3>Vitamin C 1000mg</h3>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                                class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="price">
+                            <span class="new-price">Rp 35.000</span>
+                        </div>
+                        <button class="btn-add-cart">Tambah ke Keranjang <i class="fa-solid fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-btn" data-aos="fade-up">
+                <a href="#" class="btn-outline">Lihat Semua Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Banner (Call to Action) -->
+    <section class="cta-banner" data-aos="zoom-in-up">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Butuh Obat Rutin? Kami Siap Membantu</h2>
+                <p>Langganan obat rutin Anda bersama kami dan dapatkan diskon khusus serta gratis ongkos kirim.</p>
+                <a href="#contact" class="btn-primary btn-glow">Daftar Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="image-wrapper">
+                        <i class="fa-solid fa-user-nurse about-icon-large"></i>
+                        <div class="experience-badge">
+                            <span class="num">20+</span>
+                            <span class="text">Tahun<br>Pengalaman</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <span class="subtitle">Tentang Toko Obat Sumber Sehat</span>
+                    <h2>Kesehatan Anda Adalah Dedikasi Kami</h2>
+                    <p>Toko Obat Sumber Sehat didirikan dengan satu tujuan: menyediakan akses kesehatan yang mudah,
+                        aman, dan tepercaya bagi masyarakat. Kami bukan sekadar toko obat, melainkan mitra kesehatan
+                        Anda.</p>
+                    <ul class="about-features">
+                        <li><i class="fa-solid fa-circle-check"></i> Produk 100% Original dan Terdaftar di BPOM</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Tenaga Toko obat Profesional dan Berlisensi</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Layanan Konsultasi Cepat dan Ramah</li>
+                    </ul>
+                    <a href="#services" class="btn-primary">Pelajari Lebih Lanjut</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <a href="#" class="logo footer-logo">
+                        <i class="fa-solid fa-notes-medical"></i> Toko Obat<span>Sumber Sehat</span>
+                    </a>
+                    <p>Sahabat kesehatan keluarga Anda. Hadir dengan layanan prima dan produk berkualitas untuk
+                        mendukung pola hidup sehat masyarakat.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col links-col">
+                    <h3>Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h3>Hubungi Kami</h3>
+                    <ul class="contact-info">
+                        <li><i class="fa-solid fa-location-dot"></i> Jl. Sehat Selalu No. 123, Jakarta</li>
+                        <li><i class="fa-solid fa-phone"></i> +62 812-3456-7890</li>
+                        <li><i class="fa-solid fa-envelope"></i> infotoko.obat@yahoo.com</li>
+                        <li><i class="fa-solid fa-clock"></i> Buka Setiap Hari (24 Jam)</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col newsletter-col">
+                    <h3>Berlangganan Newsletter</h3>
+                    <p>Dapatkan info kesehatan dan promo menarik langsung di email Anda.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Alamat Email Anda" required>
+                        <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Toko Obat Sumber Sehat. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Cart Button -->
+    <div class="cart-floating-btn" id="cartBtn">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay" id="cartModalOverlay">
+        <div class="cart-modal">
+            <div class="cart-modal-header">
+                <h3>Keranjang Belanja</h3>
+                <button class="close-modal" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-modal-body">
+                <div class="cart-items" id="cartItemsList">
+                    <!-- Items will be injected here via JS -->
+                    <p class="empty-cart-msg">Keranjang Anda masih kosong.</p>
+                </div>
+                <div class="cart-total-section">
+                    <span>Total Belanja:</span>
+                    <span class="cart-total-price" id="cartTotalPrice">Rp 0</span>
+                </div>
+                
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+                
+                <h4 style="margin-bottom: 15px; color: var(--primary-dark);">Data Pengiriman</h4>
+                <form id="checkoutForm" class="checkout-form">
+                    <div class="form-group">
+                        <label for="buyerName">Nama Lengkap</label>
+                        <input type="text" id="buyerName" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="buyerAddress">Alamat Lengkap</label>
+                        <textarea id="buyerAddress" rows="3" placeholder="Jalan, RT/RW, Kelurahan, Kecamatan, Kota, Kode Pos" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="shippingMethod">Pilihan Pengiriman</label>
+                        <select id="shippingMethod" required>
+                            <option value="">-- Pilih Kurir --</option>
+                            <option value="Pesan Antar (Kurir Apotek)">Pesan Antar (Kurir Apotek)</option>
+                            <option value="GoSend / GrabExpress">GoSend / GrabExpress</option>
+                            <option value="JNE / J&T">JNE / J&T</option>
+                            <option value="Ambil di Apotek">Ambil di Apotek</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="buyerNotes">Pesan Tambahan (Opsional)</label>
+                        <textarea id="buyerNotes" rows="2" placeholder="Contoh: Tolong bungkus rapat..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-checkout">
+                        <i class="fa-brands fa-whatsapp"></i> Pesan via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Vanilla Tilt for 3D Cards -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
