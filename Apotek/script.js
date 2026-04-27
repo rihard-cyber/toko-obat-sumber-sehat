@@ -83,8 +83,8 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Add to Cart Button Ripple Effect
-const cartBtns = document.querySelectorAll('.btn-add-cart');
+// Add to Cart and Buy Button Ripple Effect
+const cartBtns = document.querySelectorAll('.btn-add-cart, .btn-buy');
 cartBtns.forEach(btn => {
     btn.addEventListener('click', function(e) {
         const x = e.clientX - e.target.getBoundingClientRect().left;
@@ -224,6 +224,23 @@ addToCartButtons.forEach(button => {
         
         if(name && price) {
             addToCart(name, price);
+        }
+    });
+});
+
+// Hook Buy Buttons
+const buyButtons = document.querySelectorAll('.product-card .btn-buy');
+buyButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        // Find parent product card
+        const card = this.closest('.product-card');
+        const name = card.getAttribute('data-name');
+        const price = card.getAttribute('data-price');
+        
+        if(name && price) {
+            addToCart(name, price);
+            // Open cart modal immediately
+            if(cartModalOverlay) cartModalOverlay.classList.add('active');
         }
     });
 });
