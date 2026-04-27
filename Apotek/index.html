@@ -345,9 +345,27 @@
                     <!-- Items will be injected here via JS -->
                     <p class="empty-cart-msg">Keranjang Anda masih kosong.</p>
                 </div>
-                <div class="cart-total-section">
-                    <span>Total Belanja:</span>
-                    <span class="cart-total-price" id="cartTotalPrice">Rp 0</span>
+                <div class="voucher-section" style="margin-top: 15px; margin-bottom: 15px;">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="voucherCode" placeholder="Masukkan kode voucher (contoh: DISKON10)" style="flex: 1; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+                        <button type="button" id="applyVoucherBtn" class="btn-primary" style="padding: 0.8rem 1rem; border-radius: 8px;">Terapkan</button>
+                    </div>
+                    <div id="voucherMessage" style="font-size: 0.85rem; margin-top: 8px; font-weight: 500;"></div>
+                </div>
+
+                <div class="cart-total-section" style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotalPrice">Rp 0</span>
+                    </div>
+                    <div id="discountRow" style="display: none; justify-content: space-between; color: var(--accent-color);">
+                        <span>Diskon (<span id="discountLabel"></span>):</span>
+                        <span id="cartDiscountPrice">-Rp 0</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; border-top: 1px dashed #ccc; padding-top: 10px; margin-top: 5px; color: var(--primary-dark);">
+                        <span>Total Belanja:</span>
+                        <span class="cart-total-price" id="cartTotalPrice">Rp 0</span>
+                    </div>
                 </div>
 
                 <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">

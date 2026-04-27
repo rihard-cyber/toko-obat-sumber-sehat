@@ -134,6 +134,11 @@ document.head.appendChild(style);
 // --- CART & WHATSAPP CHECKOUT LOGIC ---
 
 let cart = [];
+let appliedVoucher = null;
+const availableVouchers = {
+    'SEHAT10': { type: 'percent', value: 0.10, minPurchase: 0 },
+    'POTONGAN20': { type: 'fixed', value: 20000, minPurchase: 50000 }
+};
 
 // DOM Elements
 const cartBtn = document.getElementById('cartBtn');
@@ -173,7 +178,13 @@ function updateCartUI() {
     
     if (cart.length === 0) {
         cartItemsList.innerHTML = '<p class="empty-cart-msg">Keranjang Anda masih kosong.</p>';
-        cartTotalPrice.textContent = 'Rp 0';
+        document.getElementById('cartSubtotalPrice').textContent = 'Rp 0';
+        document.getElementById('cartTotalPrice').textContent = 'Rp 0';
+        document.getElementById('discountRow').style.display = 'none';
+        
+        appliedVoucher = null;
+        if(document.getElementById('voucherMessage')) document.getElementById('voucherMessage').textContent = '';
+        if(document.getElementById('voucherCode')) document.getElementById('voucherCode').value = '';
         return;
     }
     
@@ -191,8 +202,32 @@ function updateCartUI() {
         cartItemsList.appendChild(itemElement);
     });
     
-    // Update Total
-    cartTotalPrice.textContent = formatRupiah(total);
+    let subtotal = total;
+    let discount = 0;
+    
+    if (appliedVoucher) {
+        if (appliedVoucher.type === 'percent') {
+            discount = subtotal * appliedVoucher.value;
+        } else if (appliedVoucher.type === 'fixed') {
+            discount = appliedVoucher.value;
+        }
+    }
+    
+    let finalTotal = subtotal - discount;
+    if (finalTotal < 0) finalTotal = 0;
+    
+    // Update UI Elements
+    document.getElementById('cartSubtotalPrice').textContent = formatRupiah(subtotal);
+    
+    if (discount > 0) {
+        document.getElementById('discountRow').style.display = 'flex';
+        document.getElementById('discountLabel').textContent = appliedVoucher.code;
+        document.getElementById('cartDiscountPrice').textContent = '-' + formatRupiah(discount);
+    } else {
+        document.getElementById('discountRow').style.display = 'none';
+    }
+    
+    document.getElementById('cartTotalPrice').textContent = formatRupiah(finalTotal);
 }
 
 // Add to Cart
@@ -210,8 +245,59 @@ function addToCart(name, price) {
 // Remove from Cart
 window.removeFromCart = function(index) {
     cart.splice(index, 1);
+    
+    // Re-validate voucher min purchase on item remove
+    if (appliedVoucher) {
+        let currentSubtotal = cart.reduce((sum, item) => sum + item.price, 0);
+        if (currentSubtotal < appliedVoucher.minPurchase) {
+            appliedVoucher = null;
+            if(document.getElementById('voucherMessage')) {
+                document.getElementById('voucherMessage').textContent = 'Voucher dilepas karena kurang dari minimal belanja.';
+                document.getElementById('voucherMessage').style.color = '#e74c3c';
+            }
+        }
+    }
+    
     updateCartUI();
 };
+
+// Apply Voucher Event
+const applyVoucherBtn = document.getElementById('applyVoucherBtn');
+const voucherCodeInput = document.getElementById('voucherCode');
+const voucherMessage = document.getElementById('voucherMessage');
+
+if (applyVoucherBtn) {
+    applyVoucherBtn.addEventListener('click', () => {
+        const code = voucherCodeInput.value.trim().toUpperCase();
+        if (!code) {
+            voucherMessage.textContent = 'Silakan masukkan kode voucher.';
+            voucherMessage.style.color = '#e74c3c';
+            return;
+        }
+        
+        if (availableVouchers[code]) {
+            const voucher = availableVouchers[code];
+            let subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+            
+            if (subtotal >= voucher.minPurchase) {
+                appliedVoucher = { code: code, ...voucher };
+                voucherMessage.textContent = `Voucher ${code} berhasil digunakan!`;
+                voucherMessage.style.color = '#2ecc71';
+                updateCartUI();
+            } else {
+                voucherMessage.textContent = `Minimal belanja untuk voucher ini adalah ${formatRupiah(voucher.minPurchase)}.`;
+                voucherMessage.style.color = '#e74c3c';
+                appliedVoucher = null;
+                updateCartUI();
+            }
+        } else {
+            voucherMessage.textContent = 'Kode voucher tidak valid.';
+            voucherMessage.style.color = '#e74c3c';
+            appliedVoucher = null;
+            updateCartUI();
+        }
+    });
+}
 
 // Hook Add to Cart Buttons
 const addToCartButtons = document.querySelectorAll('.product-card .btn-add-cart');
@@ -262,7 +348,19 @@ if(checkoutForm) {
         const buyerNotes = document.getElementById('buyerNotes').value;
         
         // Calculate Total
-        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        let subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+        let discount = 0;
+        
+        if (appliedVoucher) {
+            if (appliedVoucher.type === 'percent') {
+                discount = subtotal * appliedVoucher.value;
+            } else if (appliedVoucher.type === 'fixed') {
+                discount = appliedVoucher.value;
+            }
+        }
+        
+        let finalTotal = subtotal - discount;
+        if (finalTotal < 0) finalTotal = 0;
         
         // Build WhatsApp Message
         let message = `*HALO APOTEK SUMBER SEHAT*%0A%0ASaya ingin memesan:%0A`;
@@ -271,7 +369,11 @@ if(checkoutForm) {
             message += `${index + 1}. ${item.name} - ${formatRupiah(item.price)}%0A`;
         });
         
-        message += `%0A*Total Belanja: ${formatRupiah(total)}*%0A`;
+        message += `%0A*Subtotal: ${formatRupiah(subtotal)}*%0A`;
+        if (discount > 0) {
+            message += `*Diskon (${appliedVoucher.code}): -${formatRupiah(discount)}*%0A`;
+        }
+        message += `*Total Belanja: ${formatRupiah(finalTotal)}*%0A`;
         message += `%0A*Data Pengiriman:*%0A`;
         message += `Nama: ${buyerName}%0A`;
         message += `Alamat Lengkap: ${buyerAddress}%0A`;
